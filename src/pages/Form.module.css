@@ -1,0 +1,16 @@
+.logo {
+  width: 10vw;
+  margin-left: 2rem;
+  margin-top: 1rem;
+}
+
+.divLogo {
+  background-color: #116f59;
+}
+.form {
+  display: grid;
+  gap: 25px;
+  background-color: #116f59;
+  padding: 40px;
+  margin-left: -4.5rem;
+}
