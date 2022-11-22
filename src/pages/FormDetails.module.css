@@ -1,0 +1,29 @@
+.angledBackground{
+    position: absolute;
+    top: -7vh;
+    left: -5vw;
+    background-color: #252827;
+    width: 110vw;
+    height: 95vh;
+    transform: rotate(3deg);
+    z-index: -1;
+    box-shadow: 0 0 1.5rem 1rem rgba(0, 0, 0, 0.4);
+}
+
+.subheading{
+    font-weight: 400;
+    font-size: 3rem;
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+.heading{
+    font-weight: 400;
+    font-size: 5rem;
+    margin: 2rem 0 1.5rem 0;
+}
+
+.separator{
+    margin: 0 auto 0 0;
+    border-color: #333;
+    border-width: 2px;
+}

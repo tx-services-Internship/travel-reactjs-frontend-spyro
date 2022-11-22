@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import style from "../pages/Home.module.css";
+import style from "./Home.module.css";
 
 
 const x = Math.floor((Math.random() * 5) + 1);
