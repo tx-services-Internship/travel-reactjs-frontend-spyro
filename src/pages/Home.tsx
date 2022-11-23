@@ -17,7 +17,7 @@ function Home() {
       
       <h1 className={style.heading}>Travel Authorization Form</h1>
       <Link to="/form" style={{ textDecoration: "none" }}>
-        <HomeButton/>
+        <HomeButton label="Go to form"/>
       </Link>
         
     </HomeLayout>
