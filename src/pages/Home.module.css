@@ -7,7 +7,7 @@
     text-shadow: -1px 1px 0 #252827;
   }
   .image {
-    width: 13vw;
+    width: 15rem;
     position: absolute;
     top: 1rem;
     left: 1rem;
@@ -22,7 +22,7 @@
       font-size: 6rem;
     }
     .image {
-      width: 15vw;
+      width: 13rem;
     }
   }
   
@@ -31,7 +31,7 @@
       font-size: 5rem;
     }
     .image {
-      width: 18vw;
+      width: 11rem;
     }
   }
   
@@ -40,7 +40,7 @@
       font-size: 3.5rem;
     }
     .image {
-      width: 20vw;
+      width: 9rem;
     }
   }
   
@@ -49,7 +49,7 @@
       font-size: 2.5rem;
     }
     .image {
-      width: 25vw;
+      width: 7rem;
     }
   }
   
