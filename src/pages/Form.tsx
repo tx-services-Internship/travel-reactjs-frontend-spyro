@@ -1,84 +1,10 @@
 import style from "./Form.module.css";
+import ButtonForm from "../UI/Button";
+import { Fragment } from "react";
 import Personal from "../components/Personal";
-import React, { Fragment } from "react";
-import { Button } from "@mui/material";
 import TravelInfo from "../components/TravelInfo";
 import TripInfo from "../components/TripInfo";
-import { styled } from "@mui/material/styles";
-import { Link } from "react-router-dom";
 
-const FormButton = styled(Button)(({ theme }) => ({
-  position: "fixed",
-  right: "-30px",
-  top: "50%",
-  backgroundColor: "#00da91",
-  fontSize: "1.5rem",
-  color: "black",
-  width: "14vw",
-  minWidth: "10rem",
-  padding: "1rem 1rem",
-  borderRadius: "5rem",
-  whiteSpace: "nowrap",
-  "&:hover": {
-    backgroundColor: "#116f59",
-    color: "#f0f0f0",
-  },
-  [theme.breakpoints.down("lg")]: {
-    fontSize: "1.2rem",
-  },
-  [theme.breakpoints.down("md")]: {
-    fontSize: "0.8rem",
-  },
-  [theme.breakpoints.down("sm")]: {
-    fontSize: "0.75rem",
-  },
-}));
-const HomeButton = styled(Button)(({ theme }) => ({
-  position: "fixed",
-  right: "-30px",
-  top: "42%",
-  backgroundColor: "#00da91",
-  fontSize: "1rem",
-  color: "black",
-  width: "12vw",
-  minWidth: "10rem",
-  padding: "1rem 1rem",
-  borderRadius: "5rem",
-  whiteSpace: "nowrap",
-  "&:hover": { backgroundColor: "#116f59", color: "#f0f0f0" },
-  [theme.breakpoints.down("lg")]: {
-    fontSize: "1.2rem",
-  },
-  [theme.breakpoints.down("md")]: {
-    fontSize: "0.8rem",
-  },
-  [theme.breakpoints.down("sm")]: {
-    fontSize: "0.75rem",
-  },
-}));
-const ResetButton = styled(Button)(({ theme }) => ({
-  position: "fixed",
-  right: "-30px",
-  top: "35%",
-  backgroundColor: "#00da91",
-  fontSize: "1rem",
-  color: "black",
-  width: "12vw",
-  minWidth: "10rem",
-  padding: "1rem 1rem",
-  borderRadius: "5rem",
-  whiteSpace: "nowrap",
-  "&:hover": { backgroundColor: "#116f59", color: "#f0f0f0" },
-  [theme.breakpoints.down("lg")]: {
-    fontSize: "1.2rem",
-  },
-  [theme.breakpoints.down("md")]: {
-    fontSize: "0.8rem",
-  },
-  [theme.breakpoints.down("sm")]: {
-    fontSize: "0.75rem",
-  },
-}));
 function Form() {
   let personalData = {};
   let travelInfoData = {};
@@ -90,24 +16,23 @@ function Form() {
       ...personalData,
       ...travelInfoData,
       ...tripInfoData,
+      id: Math.random().toString(),
     };
     console.log(formData);
   }
-
-  function onSavePersonal(enteredData: any) {
+  function onSavePersonal(enteredData: React.ChangeEvent<HTMLInputElement>) {
     personalData = {
       ...enteredData,
     };
   }
-  function onSaveTravelInfo(travelInfo: any) {
+  function onSaveTravelInfo(travelInfo: React.ChangeEvent<HTMLInputElement>) {
     travelInfoData = {
       ...travelInfo,
     };
   }
-  function onSaveTripInfo(tripInfo: any) {
+  function onSaveTripInfo(tripInfo: React.ChangeEvent<HTMLInputElement>) {
     tripInfoData = {
       ...tripInfo,
-      id: Math.random().toString(),
     };
   }
 
@@ -120,31 +45,15 @@ function Form() {
         <Personal onSavePersonalData={onSavePersonal} />
         <TravelInfo onSaveTravelInfoData={onSaveTravelInfo} />
         <TripInfo onSaveTripInfoData={onSaveTripInfo} />
-        <FormButton
-          className={style.button}
-          type="submit"
-          variant="contained"
-          color="success"
-        >
-          Submit
-        </FormButton>
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <HomeButton
-            className={style.button}
-            variant="contained"
-            color="success"
-          >
-            Back to Home
-          </HomeButton>
-        </Link>
-
-        <ResetButton
-          className={style.button}
-          variant="contained"
-          color="success"
-        >
-          Reset Form
-        </ResetButton>
+        <ButtonForm
+          style={{ translate: "100rem 14rem" }}
+          name="Reset"
+        ></ButtonForm>
+        <ButtonForm
+          style={{ translate: "100rem 8rem" }}
+          name="Go to Home"
+        ></ButtonForm>
+        <ButtonForm type="submit" name="Submit"></ButtonForm>
       </form>
     </Fragment>
   );

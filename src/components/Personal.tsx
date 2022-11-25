@@ -1,81 +1,66 @@
 import { Fragment, useState } from "react";
-import style from "./Personal.module.css";
-import { TextField } from "@mui/material";
+import style from "../components/style//Personal.module.css";
+import { TextField, Typography } from "@mui/material";
+
+let personalData = {};
 
 function Personal(props: any) {
-  const [name, setName] = useState("");
-  const [department, setDepartmant] = useState("");
-  const [passport, setPasport] = useState("");
-  const [id, setId] = useState("");
+  const [form, setForm] = useState({});
 
-  const onNameHandler = (event: any) => {
-    setName(event.target.value);
-  };
-  const onDepartmentHandler = (event: any) => {
-    setDepartmant(event.target.value);
-  };
-  const onPassportHandler = (event: any) => {
-    setPasport(event.target.value);
-  };
-  const onIdHandler = (event: any) => {
-    setId(event.target.value);
-  };
-
-  const personalData = {
-    nameSurname: name,
-    department: department,
-    passportNo: passport,
-    idNo: id,
+  function handleForm(e: React.ChangeEvent<HTMLInputElement>, key: string) {
+    setForm({
+      ...form,
+      [key]: e.target.value,
+    });
+  }
+  personalData = {
+    ...form,
   };
   props.onSavePersonalData(personalData);
-
-  // setName("");
-  // setDepartmant("");
-  // setId("");
-  // setPasportInput("");
 
   return (
     <Fragment>
       <div className={style.form}>
         <div className={style.personalContainer}>
-          <h1 className={style.h1}>Personal Data</h1>
+          <Typography className={style.h1}>Personal Data</Typography>
           <TextField
             className={style.inputContainer}
-            value={name}
-            onChange={onNameHandler}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleForm(e, "nameSurname")
+            }
             type="text"
             id="outlined-basic"
             label="Name and surname"
             variant="outlined"
             color="success"
           />
-
           <TextField
             className={style.inputContainer}
-            value={department}
-            onChange={onDepartmentHandler}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleForm(e, "departmant")
+            }
             type="text"
             id="outlined-basic"
             label="Department"
             variant="outlined"
             color="success"
           />
-
           <TextField
             className={style.inputContainer}
-            value={passport}
-            onChange={onPassportHandler}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleForm(e, "passport")
+            }
             type="number"
             id="outlined-basic"
             label="Passport No"
             variant="outlined"
             color="success"
           />
-
           <TextField
             className={style.inputContainer}
-            value={id}
-            onChange={onIdHandler}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleForm(e, "id")
+            }
             type="number"
             id="outlined-basic"
             label="ID No"
