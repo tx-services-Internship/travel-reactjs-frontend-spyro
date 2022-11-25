@@ -1,7 +1,10 @@
-import React, { Fragment } from "react";
-import Home from "./pages/Home";
+import { Fragment } from "react";
+import { Route, Routes } from "react-router-dom";
 import Form from "./pages/Form";
-import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+
+import "./App.css";
+
 function App() {
   return (
     <Fragment>
@@ -12,5 +15,4 @@ function App() {
     </Fragment>
   );
 }
-
 export default App;
