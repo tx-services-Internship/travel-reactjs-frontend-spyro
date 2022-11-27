@@ -1,0 +1,78 @@
+.registerModal{
+    color: #f0f0f0;
+    font-size: 1.6rem;
+    width: 110rem;
+    height: 55rem;
+    background-color: #252827;
+    border-radius: 1rem;
+    position: absolute;
+    top: calc(50% - 27.5rem);
+    left: calc(50% - 55rem);
+    box-shadow: -0.3rem 0.3rem 2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.overlapingAccent{
+    width: 40rem;
+    height: 70rem;
+    background-color: #00da91;
+    position: absolute;
+    top: calc(50% - 35rem);
+    left: calc(50% - 40rem);
+    box-shadow: -1rem 1rem 3rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.heading{
+    color:#111;
+    margin: 7rem 0 0 3rem;
+    padding-left: 1rem;
+    width: 10rem;
+    border-left: 2px solid #116f5990;
+}
+
+.sideMenu{
+    height: 100%;
+    width: calc(50% - 45rem);
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 100%;
+    gap: 1rem;
+}
+
+.description{
+    font-size: 2rem;
+}
+
+.coloredText{
+    color:#00da91;
+}
+
+.formContainer{
+    height: calc(100% - 6rem);
+    width: 30rem;
+    margin: 3rem;
+}
+
+.logo{
+    width: 80%;
+    display: block;
+    margin: 1rem auto;
+}
+
+.step{
+    padding: 1rem 1.7rem;
+    margin-top: 3rem;
+}
+
+.step:first-of-type{
+    margin-top: 6rem;
+}
+
+.step p{
+    margin: 0;
+    white-space: nowrap;
+    color: #f0f0f0;
+}
