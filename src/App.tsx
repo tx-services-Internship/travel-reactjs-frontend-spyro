@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import Home from "./pages/Home";
 import Form from "./pages/Form";
+import Register from "./pages/Register";
 import { Routes, Route } from "react-router-dom";
 
 function App() {

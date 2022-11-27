@@ -26,8 +26,8 @@ const StyledMUITextField = styled(TextField)(({ theme }) => ({
     },
 }));
 
-function RegisterPage(){
-    const [step, setStep] = useState(2);
+function Register(){
+    const [step, setStep] = useState(1);
 
     return(
         <Fragment>
@@ -75,4 +75,4 @@ function RegisterPage(){
     );
 }
 
-export default RegisterPage;
+export default Register;
