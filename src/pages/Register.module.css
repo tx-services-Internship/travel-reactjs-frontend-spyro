@@ -31,18 +31,19 @@
 
 .sideMenu{
     height: 100%;
-    width: calc(50% - 45rem);
+    width: calc(50% - 40rem);
 }
 
 .form{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: flex-end;
-    height: 100%;
-    gap: 1rem;
+    flex-grow: 1;
 }
 
 .description{
+    margin: 0;
     font-size: 2rem;
 }
 
@@ -51,7 +52,8 @@
 }
 
 .formContainer{
-    height: calc(100% - 6rem);
+    display: flex;
+    flex-direction: column;
     width: 30rem;
     margin: 3rem;
 }
