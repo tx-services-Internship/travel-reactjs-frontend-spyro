@@ -1,55 +1,73 @@
 .heading {
-    color: #f0f0f0;
-    font-weight: 900;
-    font-size: 8rem;
-    text-align: center;
-    white-space: nowrap;
-    text-shadow: -1px 1px 0 #252827;
+  color: #f0f0f0;
+  font-weight: 900;
+  font-size: 8rem;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: -1px 1px 0 #252827;
+}
+
+.image {
+  width: 15rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.userAvatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  top: 1rem;
+  right: 3rem;
+  background-color: #00da91;
+  padding: 1rem;
+  transition: background-color .3s, color .3s;
+  box-shadow: 0.2rem 0.2rem 0.3rem 0.1rem rgba(0, 0, 0, 0.3);
+}
+
+.userAvatar:hover {
+  color: #f0f0f0;
+  background-color: #116f59;
+}
+
+@media screen and (max-width: 1199px) {
+  .heading{
+    font-size: 6rem;
   }
   .image {
-    width: 15rem;
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
+    width: 13rem;
   }
-  
-  .buttonIcon{
-    margin-left: 5px;
+}
+
+@media screen and (max-width: 899px) {
+  .heading{
+    font-size: 5rem;
   }
-  
-  @media screen and (max-width: 1199px) {
-    .heading{
-      font-size: 6rem;
-    }
-    .image {
-      width: 13rem;
-    }
+  .image {
+    width: 11rem;
   }
-  
-  @media screen and (max-width: 899px) {
-    .heading{
-      font-size: 5rem;
-    }
-    .image {
-      width: 11rem;
-    }
+}
+
+@media screen and (max-width: 599px) {
+  .heading{
+    font-size: 3.5rem;
   }
-  
-  @media screen and (max-width: 599px) {
-    .heading{
-      font-size: 3.5rem;
-    }
-    .image {
-      width: 9rem;
-    }
+  .image {
+    width: 9rem;
   }
-  
-  @media screen and (max-width: 449px) {
-    .heading{
-      font-size: 2.5rem;
-    }
-    .image {
-      width: 7rem;
-    }
+}
+
+@media screen and (max-width: 449px) {
+  .heading{
+    font-size: 2.5rem;
   }
+  .image {
+    width: 7rem;
+  }
+}
   

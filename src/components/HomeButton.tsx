@@ -26,7 +26,10 @@ const StyledMUIButton = styled(Button)(({ theme }) => ({
 }));
 
 type HomeButtonProps = {
-  label: string
+  style?: {
+    margin?: string,
+  },
+  label: string,
 }
 
 function HomeButton(props:HomeButtonProps){
