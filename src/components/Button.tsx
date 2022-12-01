@@ -16,10 +16,10 @@ const StyledMUIButton = styled(Button)(({ theme }) => ({
     fontSize: "1.2rem",
   },
   [theme.breakpoints.down('md')]: {
-    fontSize: "0.8rem",
+    fontSize: "1rem",
   },
   [theme.breakpoints.down('sm')]: {
-    fontSize: "0.75rem",
+    fontSize: "0.8rem",
   },
 }));
 

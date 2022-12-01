@@ -1,29 +1,8 @@
 import React, { Fragment, useState } from "react";
+import TextFieldComponent from "../components/TextField";
 import ButtonComponent from "../components/Button";
-import Stack from "@mui/material/Stack";
 import style from "./Register.module.css";
-import { MenuItem, Select, styled, TextField } from "@mui/material";
-
-
-const StyledMUITextField = styled(TextField)(({ theme }) => ({
-    width:"100%",
-    marginTop: "1rem",
-    "& .MuiInputBase-input": {
-        color: "#f0f0f0",
-        fontSize: "1.5rem",
-    },
-    "& .MuiOutlinedInput-notchedOutline": {
-        borderRadius: "5rem",
-        borderColor: "#00da91",
-        background: "none"
-    },
-    "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-        borderColor: "#00da91",
-    },
-    "&:hover .MuiOutlinedInput-notchedOutline": {
-        borderColor: "#00da91",
-    },
-}));
+import { MenuItem, Select, styled, Stack } from "@mui/material";
 
 const StyledMUISelect = styled(Select)(({ theme }) => ({
     color: "white",
@@ -39,49 +18,57 @@ const StyledMUISelect = styled(Select)(({ theme }) => ({
     "&::after": {
         borderColor: "#00da91",
     },
+    [theme.breakpoints.down('md')]: {
+        fontSize: "1.3rem",
+    },
+    [theme.breakpoints.down('sm')]: {
+        fontSize: "1.2rem",
+    },
+    
+}));
+
+const StyledMUIStackRegisterModal = styled(Stack)(({ theme }) => ({
+    [theme.breakpoints.down('sm')]: {
+        flexDirection: "column",
+        justifyContent: "flex-start",
+    },
 }));
 
 
 function Register(){
+
     const [step, setStep] = useState(1);
 
-    const [costCenter, setCostCenter] = useState(0);
+    const [formData, setForm] = useState({});
 
-    const [form, setForm] = useState({
-        username: "",
-        password: "",
-        name: "",
-        surname: "",
-        email: "",
-        costCenter: 0
-    });
+    function handleForm(event:React.ChangeEvent<HTMLInputElement>){
+        const fieldName = event.target.name;
+        const fieldValue = event.target.value;
 
-    function handleForm(event:React.ChangeEvent<HTMLInputElement>, key:string){
-        // const updatedForm = {...form};
-
-        // updatedForm[key as keyof typeof updatedForm] = event.target.value;
-        // setForm(updatedForm);
-        setForm({
-            ...form,
-            [key]: event.target.value
+        setForm((prevState) => {
+            return {
+                ...prevState,
+                [fieldName]: fieldValue
+            }
         });
     }
 
-    function submitHandler(){
-        console.log(form);
+    function increaseStep(){
+        setStep(prevStep=>prevStep + 1);
     }
 
-    function increaseStep(){
-        setStep(step + 1);
-    }
     function decreaseStep(){
-        setStep(step - 1);
+        setStep(prevStep=>prevStep - 1);
+    }
+
+    function submitHandler(){
+        console.log(formData);
     }
 
     return(
         <Fragment>
             <div className={style.registerModal}>
-                <Stack direction="row" justifyContent="space-between" sx={{height: "100%"}}>
+                <StyledMUIStackRegisterModal direction="row" justifyContent="space-between" sx={{height: "100%"}}>
                     <div className={style.sideMenu}>
                         <img className={style.logo} src="tx-logo-transformed.webp" alt="TX Services logo" />
                         <div className={style.step} style={{
@@ -101,18 +88,19 @@ function Register(){
                         {step === 2 ? <p className={style.description}>Now in this step you are required to put <span className={style.coloredText}>information about yourself</span> in the fields below</p> : null}
                         <form className={style.form}>
                             <div style={{display: step === 1 ? "block" : "none"}}>
-                                <StyledMUITextField onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleForm(e, "username")} placeholder="Username"/>
-                                <StyledMUITextField onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleForm(e, "password")} placeholder="Password"/>
+                                <TextFieldComponent name="username" style={{margin: "1rem 0 0 0"}} placeholder="Username" change={handleForm} value={Object.getOwnPropertyNames(formData).includes("username") ? Object.values(formData)[Object.getOwnPropertyNames(formData).indexOf("username")] : ""}/>
+                                <TextFieldComponent name="password" style={{margin: "1rem 0 0 0"}} placeholder="Password" inputProps={{type: "password"}} change={handleForm} value={Object.getOwnPropertyNames(formData).includes("password") ? Object.values(formData)[Object.getOwnPropertyNames(formData).indexOf("password")] : ""}/>
                             </div>
                             <div style={{display: step === 2 ? "block" : "none"}}>
-                                <StyledMUITextField onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleForm(e, "name")} placeholder="Name"/>
-                                <StyledMUITextField onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleForm(e, "surname")} placeholder="Surname"/>
-                                <StyledMUITextField onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleForm(e, "email")} placeholder="Email" inputProps={{type: "email"}}/>
+                                <TextFieldComponent name="name" style={{margin: "1rem 0 0 0"}} placeholder="Name" change={handleForm} value={Object.getOwnPropertyNames(formData).includes("name") ? Object.values(formData)[Object.getOwnPropertyNames(formData).indexOf("name")] : ""}/>
+                                <TextFieldComponent name="surname" style={{margin: "1rem 0 0 0"}} placeholder="Surname" change={handleForm} value={Object.getOwnPropertyNames(formData).includes("surname") ? Object.values(formData)[Object.getOwnPropertyNames(formData).indexOf("surname")] : ""}/>
+                                <TextFieldComponent name="email" style={{margin: "1rem 0 0 0"}} placeholder="Email" change={handleForm} value={Object.getOwnPropertyNames(formData).includes("email") ? Object.values(formData)[Object.getOwnPropertyNames(formData).indexOf("email")] : ""}/>
                                 <StyledMUISelect
                                     variant="standard"
-                                    value={form.costCenter}
+                                    name="costCenter"
+                                    value={Object.getOwnPropertyNames(formData).includes("costCenter") ? Object.values(formData)[Object.getOwnPropertyNames(formData).indexOf("costCenter")] : 0}
                                     //Not a good solution but works for now
-                                    onChange={(event:any) => handleForm(event, "costCenter")}
+                                    onChange={(event:any) => handleForm(event)}
                                 >
                                     <MenuItem value={0}>Select a cost center...</MenuItem>
                                     <MenuItem value={1}>Cost center 1</MenuItem>
@@ -134,7 +122,7 @@ function Register(){
                             : null}
                         </form>
                     </div>
-                </Stack>
+                </StyledMUIStackRegisterModal>
             </div>
             <div className={style.overlapingAccent}>
                 <h1 className={style.heading}>Welcome to the Registration Page.</h1>
