@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import HomeButton from "../components/HomeButton";
+import ButtonComponent from "../components/Button";
 import HomeLayout from "../components/HomeLayout";
 import style from "./Home.module.css";
 
@@ -28,11 +28,11 @@ function Home() {
       <h1 className={style.heading}>Travel Authorization Form</h1>
       <Link to="/form" style={{ textDecoration: "none" }}>
         {isLoggedIn ? 
-          <HomeButton label="Go to form"/>
+          <ButtonComponent label="Go to form"/>
         : 
           <div>
-            <HomeButton label="Log In"/>
-            <HomeButton label="Register"/>
+            <ButtonComponent label="Log In"/>
+            <ButtonComponent label="Register"/>
           </div>
         }
         

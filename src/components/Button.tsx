@@ -5,8 +5,6 @@ const StyledMUIButton = styled(Button)(({ theme }) => ({
   backgroundColor: "#00da91",
   fontSize: "1.5rem",
   color: "black",
-  width:"16vw",
-  minWidth: "10rem",
   padding: "1rem 2rem",
   borderRadius: "5rem",
   whiteSpace: "nowrap",
@@ -18,22 +16,22 @@ const StyledMUIButton = styled(Button)(({ theme }) => ({
     fontSize: "1.2rem",
   },
   [theme.breakpoints.down('md')]: {
-    fontSize: "0.8rem",
+    fontSize: "1rem",
   },
   [theme.breakpoints.down('sm')]: {
-    fontSize: "0.75rem",
+    fontSize: "0.8rem",
   },
 }));
 
-type HomeButtonProps = {
-  style?: {
-    margin?: string,
-  },
-  label: string,
+type ButtonProps = {
+  width?: string,
+  mt?: string,
+  label?: string,
+  click?: () => void,
 }
 
-function HomeButton(props:HomeButtonProps){
-    return <StyledMUIButton variant="contained">{props.label}</StyledMUIButton>
+function ButtonComponent(props:ButtonProps){
+    return <StyledMUIButton sx={{marginTop: props.mt, width: props.width}} onClick={props.click} variant="contained">{props.label}</StyledMUIButton>
 }
 
-export default HomeButton;
+export default ButtonComponent;
