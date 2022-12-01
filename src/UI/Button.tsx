@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
 
-const FormButtons = styled(Button)(({ theme, size }) => ({
+const FormButtons = styled(Button)(({ theme }) => ({
   position: "fixed",
   translate: "100rem 20rem",
   backgroundColor: "#00da91",

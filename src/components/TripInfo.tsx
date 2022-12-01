@@ -13,28 +13,26 @@ import style from "../components/style//TripInfo.module.css";
 function TripInfo(props: any) {
   const [form, setForm] = useState({});
 
-  let tripInfoData = {};
-
-  function handlerForm(e: any, key: string) {
-    setForm({
+  function onHandlerChange(e: any) {
+    setForm((previusState) => {
+      return {
+        ...previusState,
+        [e.target.name]: e.target.value,
+      };
+    });
+    props.onSaveTripInfoData({
       ...form,
-      [key]: e.target.value,
+      [e.target.name]: e.target.value,
     });
   }
-
-  tripInfoData = {
-    ...form,
-  };
-  props.onSaveTripInfoData(tripInfoData);
 
   return (
     <div className={style.tripInfoContainer}>
       <Typography className={style.h1}> Trip Info</Typography>
       <div className={style.acomodation}>
         <TextField
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            handlerForm(e, "accomodation")
-          }
+          onChange={onHandlerChange}
+          name="accomodation"
           className={style.acomodationContainer}
           id="outlined-basic"
           label="Type of Accomodation"
@@ -45,11 +43,12 @@ function TripInfo(props: any) {
       <FormControl className={style.breakfast}>
         <InputLabel color="success">Number of Breakfast</InputLabel>
         <Select
-          onChange={(e: any) => handlerForm(e, "breakfast")}
+          onChange={onHandlerChange}
+          name="breakfast"
           className={style.select}
           id="demo-simple-select"
           color="success"
-          value={form}
+          value={""}
         >
           <MenuItem value="1">1</MenuItem>
           <MenuItem value="2">2</MenuItem>
@@ -60,9 +59,10 @@ function TripInfo(props: any) {
         <InputLabel color="success">Number of Lunch</InputLabel>
         <Select
           className={style.select}
-          onChange={(e: any) => handlerForm(e, "lunch")}
+          onChange={onHandlerChange}
+          name="lunch"
           color="success"
-          value={form}
+          value={""}
         >
           <MenuItem value="1">1</MenuItem>
           <MenuItem value="2">2</MenuItem>
@@ -73,9 +73,10 @@ function TripInfo(props: any) {
         <InputLabel color="success">Number of Diner</InputLabel>
         <Select
           className={style.select}
-          onChange={(e: any) => handlerForm(e, "diner")}
+          onChange={onHandlerChange}
+          name="dinner"
           color="success"
-          value={form}
+          value={""}
         >
           <MenuItem value="1">1</MenuItem>
           <MenuItem value="2">2</MenuItem>
@@ -85,9 +86,8 @@ function TripInfo(props: any) {
 
       <div className={style.transportContainer}>
         <TextField
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            handlerForm(e, "transport")
-          }
+          onChange={onHandlerChange}
+          name="transport"
           className={style.transportInput}
           type="text"
           id="standard-basic"
@@ -98,9 +98,8 @@ function TripInfo(props: any) {
       </div>
       <div className={style.VehicleContainer}>
         <TextField
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            handlerForm(e, "registration")
-          }
+          onChange={onHandlerChange}
+          name="registration"
           className={style.VehicleInput}
           type="number"
           id="standard-basic"
@@ -110,9 +109,8 @@ function TripInfo(props: any) {
         />
       </div>
       <TextareaAutosize
-        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-          handlerForm(e, "purposeof")
-        }
+        onChange={onHandlerChange}
+        name="purposeof"
         className={style.textArea}
         maxRows={4}
         aria-label="maximum height"

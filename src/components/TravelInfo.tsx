@@ -3,21 +3,20 @@ import { TextField, InputLabel, Typography } from "@mui/material";
 import style from "../components/style//TravelInfo.module.css";
 
 function TravelInfo(props: any) {
-  let travelInfoData = {};
-
   const [form, setForm] = useState({});
 
-  function handleForm(e: React.ChangeEvent<HTMLInputElement>, key: string) {
-    setForm({
+  function onHandlerChange(e: any) {
+    setForm((previsuState) => {
+      return {
+        ...[previsuState],
+        [e.target.name]: e.target.value,
+      };
+    });
+    props.onSaveTravelInfoData({
       ...form,
-      [key]: e.target.value,
+      [e.target.name]: e.target.value,
     });
   }
-  travelInfoData = {
-    ...form,
-  };
-
-  props.onSaveTravelInfoData(travelInfoData);
 
   return (
     <div className={style.travelInfoContainer}>
@@ -28,9 +27,8 @@ function TravelInfo(props: any) {
             Business trip end time
           </InputLabel>
           <TextField
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              handleForm(e, "BusinessTripTime")
-            }
+            onChange={onHandlerChange}
+            name="Businesstripendtime"
             className={style.inputContainer}
             type="time"
             id="outlined-basic"
@@ -39,9 +37,8 @@ function TravelInfo(props: any) {
           />
           <InputLabel className={style.labelRight}>Departured Time</InputLabel>
           <TextField
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              handleForm(e, "DeparturedTime")
-            }
+            onChange={onHandlerChange}
+            name="departuredTime"
             className={style.inputContainer}
             type="time"
             id="outlined-basic"
@@ -49,9 +46,8 @@ function TravelInfo(props: any) {
             color="success"
           />
           <TextField
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              handleForm(e, "Country")
-            }
+            onChange={onHandlerChange}
+            name="country"
             className={style.inputContainer}
             type="text"
             id="outlined-basic"
@@ -66,9 +62,8 @@ function TravelInfo(props: any) {
               Business trip end date
             </InputLabel>
             <TextField
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                handleForm(e, "BusinessTripDate")
-              }
+              onChange={onHandlerChange}
+              name="businessTripDate"
               className={style.inputContainer}
               type="date"
               id="outlined-basic"
@@ -79,9 +74,8 @@ function TravelInfo(props: any) {
           <div className={style.arrivalDate}>
             <InputLabel className={style.label}> Arrival date </InputLabel>
             <TextField
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                handleForm(e, "Arrival")
-              }
+              onChange={onHandlerChange}
+              name="arrival"
               className={style.inputContainer}
               type="date"
               id="outlined-basic"
@@ -92,9 +86,8 @@ function TravelInfo(props: any) {
           <div>
             <InputLabel className={style.label}>Departure date</InputLabel>
             <TextField
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                handleForm(e, "DepartureDate")
-              }
+              onChange={onHandlerChange}
+              name="departureDate"
               className={style.inputContainer}
               type="date"
               id="outlined-basic"
