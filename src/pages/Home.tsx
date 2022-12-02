@@ -8,23 +8,23 @@ import axios from "axios";
 
 function Home() {
 
-  async function getData(){
-    const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
-    console.log(response.data);
-  }
+  // async function getData(){
+  //   const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
+  //   console.log(response.data);
+  // }
 
-  async function handleAdd(){
-    const newPost = {
-      title: "a",
-      body: "b"
-    };
-    const response = await axios.post("https://jsonplaceholder.typicode.com/posts", newPost);
-    console.log(response);
-  }
+  // async function handleAdd(){
+  //   const newPost = {
+  //     title: "a",
+  //     body: "b"
+  //   };
+  //   const response = await axios.post("https://jsonplaceholder.typicode.com/posts", newPost);
+  //   console.log(response);
+  // }
 
-  useEffect(()=>{
-    getData();
-  },[]);
+  // useEffect(()=>{
+  //   getData();
+  // },[]);
 
   const [isLoggedIn, setIsLoggenIn] = useState(
     JSON.parse(localStorage.getItem("isLoggedIn") as string) || false
