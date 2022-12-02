@@ -13,6 +13,7 @@ const Flex = styled(Stack)({
 
 type HomeLayoutProps = {
     children: React.ReactNode,
+    click?: () => void,
 }
 
 function HomeLayout(props:HomeLayoutProps){
@@ -21,6 +22,7 @@ function HomeLayout(props:HomeLayoutProps){
             direction="column"
             justifyContent="center"
             alignItems="center"
+            onClick={props.click}
         >
             {props.children}
         </Flex>

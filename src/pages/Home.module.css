@@ -14,16 +14,24 @@
   left: 1rem;
 }
 
+.userWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 15rem;
+}
+
 .userAvatar {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
-  top: 1rem;
-  right: 3rem;
   background-color: #00da91;
   padding: 1rem;
   transition: background-color .3s, color .3s;
@@ -33,6 +41,17 @@
 .userAvatar:hover {
   color: #f0f0f0;
   background-color: #116f59;
+}
+
+.userAvatarMenu{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  border-radius: 2rem;
+  background-color: #00da91;
+  box-shadow: 0.2rem 0.2rem 0.3rem 0.1rem rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
 @media screen and (max-width: 1199px) {

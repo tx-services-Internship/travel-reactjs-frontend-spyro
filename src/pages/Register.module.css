@@ -39,17 +39,16 @@
     margin: 1rem 0
 }
 
+.sideMenu a{
+    text-align: center;
+}
+
 .form{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
     flex-grow: 1;
-}
-
-.form > div > .MuiFormControlRoot{
-    border: 2px solid gold;
-    background-color: red;
 }
 
 .description{
@@ -69,9 +68,7 @@
 }
 
 .logo{
-    align-self: center;
     width: 10rem;
-    display: block;
     margin: 1rem 0;
 }
 

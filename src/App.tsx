@@ -1,12 +1,14 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import Home from "./pages/Home";
 import Form from "./pages/Form";
 import Register from "./pages/Register";
+import Login from "./pages/Login";
 import { Routes, Route } from "react-router-dom";
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCheckSquare, faCoffee, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faCheckSquare, faCoffee, faUser)
+
+library.add(faUser)
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/form" element={<Form />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Fragment>
   );

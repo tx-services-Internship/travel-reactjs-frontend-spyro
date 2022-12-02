@@ -25,13 +25,28 @@ const StyledMUIButton = styled(Button)(({ theme }) => ({
 
 type ButtonProps = {
   width?: string,
-  mt?: string,
-  label?: string,
+  margin?: string,
+  boxShadow?: string,
+  label: string,
   click?: () => void,
 }
 
 function ButtonComponent(props:ButtonProps){
-    return <StyledMUIButton sx={{marginTop: props.mt, width: props.width}} onClick={props.click} variant="contained">{props.label}</StyledMUIButton>
+    return <StyledMUIButton 
+            sx={{
+              margin: props.margin, 
+              width: props.width, 
+              boxShadow: props.boxShadow, 
+              '&:hover': {
+                boxShadow: props.boxShadow
+              },
+            }} 
+            onClick={props.click} 
+            variant="contained">
+
+              {props.label}
+              
+            </StyledMUIButton>
 }
 
 export default ButtonComponent;

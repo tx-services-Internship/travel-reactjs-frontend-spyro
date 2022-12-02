@@ -3,6 +3,7 @@ import TextFieldComponent from "../components/TextField";
 import ButtonComponent from "../components/Button";
 import style from "./Register.module.css";
 import { MenuItem, Select, styled, Stack } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const StyledMUISelect = styled(Select)(({ theme }) => ({
     color: "white",
@@ -70,7 +71,11 @@ function Register(){
             <div className={style.registerModal}>
                 <StyledMUIStackRegisterModal direction="row" justifyContent="space-between" sx={{height: "100%"}}>
                     <div className={style.sideMenu}>
-                        <img className={style.logo} src="tx-logo-transformed.webp" alt="TX Services logo" />
+                        
+                        <Link to="/" style={{ textDecoration: "none" }}>
+                            <img className={style.logo} src="tx-logo-transformed.webp" alt="TX Services logo" />
+                        </Link>
+                        
                         <div className={style.step} style={{
                             borderLeft: step === 1 ? "3px solid #00da91" : "",
                         }}>

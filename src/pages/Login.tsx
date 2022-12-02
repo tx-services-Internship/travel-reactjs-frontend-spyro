@@ -1,8 +1,8 @@
-function LogInPage() {
+function Login() {
 
     return (
       <h1>Log In Page</h1>
     );
   }
   
-  export default LogInPage;
+  export default Login;
