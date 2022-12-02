@@ -1,0 +1,59 @@
+.travelInfoContainer {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  gap: 10px;
+  box-shadow: 1rem 1.5rem 3rem 2rem rgba(0, 0, 0, 0.4);
+  row-gap: 10px;
+  column-gap: 10px;
+  background-color: #252827;
+  padding: 2rem 0 2rem 5rem;
+
+  border-radius: 40px;
+}
+.h1 {
+  margin-bottom: 2rem;
+  font-style: italic;
+  font-size: 130%;
+  color: #00da91;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.departureDateConstainer {
+  border-radius: 20px;
+  width: 90%;
+}
+.flexColumn {
+  gap: 2.2rem;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+.dataWraper {
+  display: flex;
+  justify-content: flex-start;
+
+  gap: 4rem;
+}
+.flexColumnRight {
+  gap: 1rem;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.inputContainer {
+  background-color: antiquewhite;
+  border-radius: 20px;
+  width: 90%;
+}
+.label {
+  font-style: italic;
+  color: #00da91 !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.labelRight {
+  font-style: italic;
+  color: #00da91 !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: -30px;
+}

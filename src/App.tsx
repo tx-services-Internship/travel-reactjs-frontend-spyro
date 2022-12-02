@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import Home from "./pages/Home";
 import Form from "./pages/Form";
 import Register from "./pages/Register";
@@ -14,5 +14,5 @@ function App() {
       </Routes>
     </Fragment>
   );
-};
+}
 export default App;
